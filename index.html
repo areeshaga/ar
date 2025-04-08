@@ -1,17 +1,28 @@
-
+<!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.js"></script>
+    <title>View Hat Model - AR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+    </style>
   </head>
-  <body style="margin: 0; overflow: hidden;">
+  <body>
     <a-scene embedded arjs>
-      <a-assets>
-        <a-asset-item id="model" src="sample_model.glb"></a-asset-item>
-      </a-assets>
+      <!-- Marker for tracking -->
+      <a-marker preset="hiro">
+        <!-- Replace with the URL to your uploaded sample_model.glb -->
+        <a-entity gltf-model="https://yourusername.github.io/your-repo-name/sample_model.glb"
+                  scale="0.1 0.1 0.1" 
+                  position="0 0 0" 
+                  rotation="0 0 0">
+        </a-entity>
+      </a-marker>
 
-      <a-entity gltf-model="#model" position="0 0 0" scale="0.5 0.5 0.5"></a-entity>
-      <a-marker-camera />
+      <!-- AR Camera -->
+      <a-entity camera></a-entity>
     </a-scene>
   </body>
 </html>
